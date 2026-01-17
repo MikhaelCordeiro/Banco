@@ -1,1 +1,0 @@
-print('mika fresco')
