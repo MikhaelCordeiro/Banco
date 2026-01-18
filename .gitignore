@@ -1,0 +1,6 @@
+cpp/data/*.data
+cpp/data/*.log
+*.o
+*.exe
+*.out
+build/
