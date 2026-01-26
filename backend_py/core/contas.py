@@ -6,7 +6,6 @@ from backend_py.utils import security
 
 def validar_cpf(cpf: str):
     uniqueValue = supabase.table("contas").select("*").eq("cpf", cpf).execute()
-    print(f"O banco retornou: {uniqueValue.data}")
     if uniqueValue.data == []:
         return True
     else:
@@ -45,6 +44,3 @@ def criar_conta(cpf: str, senha: str):
         return supabase.table("contas").insert(nova_conta).execute()
     except Exception as e:
         return f"Erro ao criar conta: {e}"
-
-
-print(criar_conta("135.394.874-82", "SenhaForte123"))
