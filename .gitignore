@@ -1,6 +1,1 @@
-cpp/data/*.data
-cpp/data/*.log
-*.o
-*.exe
-*.out
-build/
+./backend_py/utils
