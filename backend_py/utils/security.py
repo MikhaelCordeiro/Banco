@@ -3,8 +3,9 @@ import re
 import secrets
 
 
-def verificar_forca(senha):
-    return len(senha) >= 8 and re.search(r"\d", senha) and re.search(r"[A-Z]", senha)
+def verificar_senha(senha):
+    forcaSenha = len(senha) == 8 and re.search(r"\d", senha)
+    return "A senha não cumpri os requisitos" if forcaSenha == False else True
 
 
 def salt():
