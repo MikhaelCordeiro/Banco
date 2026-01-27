@@ -1,0 +1,4 @@
+[2026-01-27 12:32:29.181486] - ERRO CRÍTICO: {'message': 'invalid input syntax for type bigint: "40906dbe5036e00030c31da96f57e0441ca50e6737e517bad1452e646c8c1cff"', 'code': '22P02', 'hint': None, 'details': None}
+[2026-01-27 12:58:05.803520] - ERRO CRÍTICO: {'message': 'invalid input syntax for type bigint: "31f4104abb6a6ba3887365a5afbe5a09f45727b333686a3aeff937434f559220"', 'code': '22P02', 'hint': None, 'details': None}
+[2026-01-27 13:01:23.026923] - Sucesso: Conta 407440 criada para CPF 444.444.444-21
+[2026-01-27 13:06:41.029584] - Sucesso: Conta 141040 criada para CPF 345.654.790-23

@@ -1,15 +1,13 @@
 import random
 
 from backend_py.storage.database import supabase
+from backend_py.storage.repository import registrar_log
 from backend_py.utils import security
 
 
 def validar_cpf(cpf: str):
     uniqueValue = supabase.table("contas").select("*").eq("cpf", cpf).execute()
-    if uniqueValue.data == []:
-        return True
-    else:
-        return False
+    return len(uniqueValue.data) == 0
 
 
 def gerar_numero_conta():
@@ -26,7 +24,7 @@ def criar_conta(cpf: str, senha: str):
     if not validar_cpf(cpf):
         return "CPF já esta em uso"
 
-    if not security.verificar_forca(senha):
+    if not security.verificar_senha(senha):
         return "Senha não segue as Regras"
 
     meu_salt = security.salt()
@@ -41,6 +39,8 @@ def criar_conta(cpf: str, senha: str):
     }
 
     try:
-        return supabase.table("contas").insert(nova_conta).execute()
+        supabase.table("contas").insert(nova_conta).execute()
+        registrar_log(f"Sucesso: Conta {numero_final} criada para CPF {cpf}")
+        return f"Conta criada com sucesso! Seu número é {numero_final}"
     except Exception as e:
-        return f"Erro ao criar conta: {e}"
+        return registrar_log(f"ERRO CRÍTICO: {e}")
